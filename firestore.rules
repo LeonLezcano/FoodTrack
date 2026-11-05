@@ -1,0 +1,47 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isKitchenStaff() {
+      return isAuthenticated() && (
+        request.auth.token.role == 'chef' ||
+        request.auth.token.role == 'manager' ||
+        request.auth.token.role == 'admin'
+      );
+    }
+
+    function isCompanyHR(companyId) {
+      return isAuthenticated() && request.auth.token.companyId == companyId;
+    }
+
+    match /employees/{employeeId} {
+      allow read: if isAuthenticated();
+      allow write: if isKitchenStaff();
+    }
+
+    match /menus/{menuId} {
+      allow read: if isAuthenticated();
+      allow write: if isKitchenStaff();
+    }
+
+    match /meal_transactions/{transactionId} {
+      allow read: if isAuthenticated();
+      allow create: if isKitchenStaff();
+      allow update, delete: if false; // Inmutable audit ledger
+    }
+
+    match /haccp_logs/{logId} {
+      allow read: if isAuthenticated();
+      allow create: if isKitchenStaff();
+      allow update, delete: if false; // Inmutable temperature record
+    }
+
+    match /billing_batches/{batchId} {
+      allow read: if isKitchenStaff() || (isAuthenticated() && isCompanyHR(resource.data.companyId));
+      allow write: if isKitchenStaff();
+    }
+  }
+}

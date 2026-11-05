@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>FoodTrack - Catering Industrial & Comedores de Planta</title>
+  <!-- Inline SVG Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2310b981'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+    }
+    /* Touch optimization for canteen totems & kitchen tablets */
+    button, select, input, a {
+      min-height: 44px;
+      touch-action: manipulation;
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col font-sans selection:bg-emerald-500 selection:text-white antialiased">
+  <!-- Toast Alerts Container -->
+  <div id="toastContainer" class="fixed top-4 right-4 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
+
+  <!-- Header -->
+  <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 sticky top-0 z-30 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-lg shadow-emerald-500/25 text-xl">
+          🍲
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg font-black tracking-tight text-white">FoodTrack</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 font-semibold">v1.0.00</span>
+          </div>
+          <p class="text-[10px] text-slate-400">Catering Industrial, Comedores de Planta & Cero Desperdicio</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <!-- Wake Lock Button (Directiva 9) -->
+        <button id="wakeLockBtn" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 border border-slate-700" title="Screen Wake Lock API">
+          🌙 Modo Tótem: OFF
+        </button>
+
+        <!-- Fast HACCP Entry -->
+        <button data-action="open-haccp-modal" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/30 flex items-center gap-1.5">
+          🌡️ Control HACCP
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800/60 overflow-x-auto py-2">
+      <nav class="flex space-x-2">
+        <button data-tab="dashboard" class="px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 flex items-center gap-2">
+          📊 Panel General
+        </button>
+        <button data-tab="totem" class="px-4 py-2 rounded-xl text-sm font-semibold bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800/80 flex items-center gap-2">
+          🥗 Tótem en Línea
+        </button>
+        <button data-tab="production" class="px-4 py-2 rounded-xl text-sm font-semibold bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800/80 flex items-center gap-2">
+          🍳 Batch de Cocina
+        </button>
+        <button data-tab="employees" class="px-4 py-2 rounded-xl text-sm font-semibold bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800/80 flex items-center gap-2">
+          👥 Operarios & Dietas
+        </button>
+        <button data-tab="haccp" class="px-4 py-2 rounded-xl text-sm font-semibold bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800/80 flex items-center gap-2">
+          🌡️ Auditoría HACCP
+        </button>
+        <button data-tab="billing" class="px-4 py-2 rounded-xl text-sm font-semibold bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800/80 flex items-center gap-2">
+          💰 Liquidación B2B
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div id="mainView">
+      <!-- Dynamic View Rendered by JS -->
+    </div>
+  </main>
+
+  <!-- Main Modal -->
+  <div id="mainModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 relative">
+      <div class="flex justify-between items-center mb-4 border-b border-slate-800 pb-3">
+        <h3 id="modalTitle" class="text-base font-bold text-white">Modal</h3>
+        <button data-action="close-modal" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 text-lg">&times;</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-900 py-4 text-center text-xs text-slate-600 no-print">
+    FoodTrack v1.0.00 · Inocuidad HACCP · Sello Criptográfico SHA-256 · Cero Desperdicio · AiAppFactory
+  </footer>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

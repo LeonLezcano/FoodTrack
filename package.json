@@ -1,0 +1,22 @@
+{
+  "name": "foodtrack",
+  "version": "1.0.00",
+  "description": "Plataforma de Gestión de Comedores de Planta, Viandas Corporativas & Cero Desperdicio",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/run_tests.js",
+    "test:security": "node ../AiAppFactory/tools/security-guardian/index.mjs .",
+    "security:full": "node ../AiAppFactory/tools/security-guardian/index.mjs .",
+    "version:bump": "node -e \"const v = JSON.parse(fs.readFileSync('version.json')); const parts = v.version.slice(1).split('.'); parts[2] = String(Number(parts[2]) + 1).padStart(2, '0'); v.version = 'v' + parts.join('.'); fs.writeFileSync('version.json', JSON.stringify(v, null, 2)); console.log(v.version);\""
+  },
+  "keywords": [
+    "catering-industrial",
+    "comedores-planta",
+    "viandas-corporativas",
+    "haccp",
+    "sin-tacc",
+    "cero-desperdicio"
+  ],
+  "author": "AiAppFactory",
+  "license": "MIT"
+}

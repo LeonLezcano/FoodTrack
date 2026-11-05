@@ -1,0 +1,307 @@
+{
+  "communities": {
+    "0": [
+      "tests_run_tests",
+      "tests_run_tests_alerturl",
+      "tests_run_tests_assert",
+      "tests_run_tests_assertthrows",
+      "tests_run_tests_badscheme",
+      "tests_run_tests_batch",
+      "tests_run_tests_batchperiod",
+      "tests_run_tests_bceliac",
+      "tests_run_tests_bhypo",
+      "tests_run_tests_billbatch",
+      "tests_run_tests_billservice",
+      "tests_run_tests_cache",
+      "tests_run_tests_checktamper",
+      "tests_run_tests_cleanattr",
+      "tests_run_tests_cleanphone",
+      "tests_run_tests_cleanscript",
+      "tests_run_tests_comp",
+      "tests_run_tests_csvoutput",
+      "tests_run_tests_dietstats",
+      "tests_run_tests_emp1",
+      "tests_run_tests_emp2",
+      "tests_run_tests_empreg",
+      "tests_run_tests_fars",
+      "tests_run_tests_fbconfig",
+      "tests_run_tests_fbpath",
+      "tests_run_tests_goodscheme",
+      "tests_run_tests_haccpsent",
+      "tests_run_tests_harrival",
+      "tests_run_tests_hash1",
+      "tests_run_tests_hash2",
+      "tests_run_tests_hash3",
+      "tests_run_tests_hashemoji",
+      "tests_run_tests_hcolddanger",
+      "tests_run_tests_hcoldsafe",
+      "tests_run_tests_hdanger",
+      "tests_run_tests_hdispatch",
+      "tests_run_tests_hfuzz",
+      "tests_run_tests_hhotdanger",
+      "tests_run_tests_hhotsafe",
+      "tests_run_tests_hhotwarn",
+      "tests_run_tests_hsummary",
+      "tests_run_tests_isclosed",
+      "tests_run_tests_loaded",
+      "tests_run_tests_menueng",
+      "tests_run_tests_menuobj",
+      "tests_run_tests_menuurl",
+      "tests_run_tests_mockstorage",
+      "tests_run_tests_outbox",
+      "tests_run_tests_rulespath",
+      "tests_run_tests_rulesstr",
+      "tests_run_tests_saved",
+      "tests_run_tests_scan1",
+      "tests_run_tests_scanceliac",
+      "tests_run_tests_scandouble",
+      "tests_run_tests_sel",
+      "tests_run_tests_txitem",
+      "tests_run_tests_valservice"
+    ],
+    "1": [
+      "src_main_foodtrackapp",
+      "src_main_foodtrackapp_bindevents",
+      "src_main_foodtrackapp_closemodal",
+      "src_main_foodtrackapp_constructor",
+      "src_main_foodtrackapp_handleaction",
+      "src_main_foodtrackapp_handleexportbatchcsv",
+      "src_main_foodtrackapp_handlegeneratebatch",
+      "src_main_foodtrackapp_handleregisteremployee",
+      "src_main_foodtrackapp_handlesavehaccplog",
+      "src_main_foodtrackapp_handletotemnumpadkey",
+      "src_main_foodtrackapp_handletotemscan",
+      "src_main_foodtrackapp_init",
+      "src_main_foodtrackapp_openemployeemodal",
+      "src_main_foodtrackapp_openhaccpmodal",
+      "src_main_foodtrackapp_render",
+      "src_main_foodtrackapp_renderbilling",
+      "src_main_foodtrackapp_renderdashboard",
+      "src_main_foodtrackapp_renderemployees",
+      "src_main_foodtrackapp_renderhaccp",
+      "src_main_foodtrackapp_renderproduction",
+      "src_main_foodtrackapp_rendertotem",
+      "src_main_foodtrackapp_seeddemodataifallowed",
+      "src_main_foodtrackapp_setupwakelock",
+      "src_main_foodtrackapp_showtoast",
+      "src_main_foodtrackapp_switchtab",
+      "src_main_foodtrackapp_togglewakelock",
+      "src_main_foodtrackapp_updatewakelockbutton",
+      "src_utils_sanitizer",
+      "src_utils_sanitizer_sanitizer",
+      "src_utils_sanitizer_sanitizer_escapehtml",
+      "src_utils_sanitizer_sanitizer_safesetinnerhtml",
+      "src_utils_sanitizer_sanitizer_sanitizetofragment",
+      "src_utils_sanitizer_sanitizer_sanitizeurl"
+    ],
+    "2": [
+      "src_core_haccpthermalsentinel",
+      "src_main",
+      "src_services_corporatebillingservice",
+      "src_services_corporatebillingservice_corporatebillingservice",
+      "src_services_corporatebillingservice_corporatebillingservice_constructor",
+      "src_services_corporatebillingservice_corporatebillingservice_exportbatchcsv",
+      "src_services_corporatebillingservice_corporatebillingservice_generatebatchid",
+      "src_services_corporatebillingservice_corporatebillingservice_generatemonthlybatch",
+      "src_services_corporatebillingservice_corporatebillingservice_getbatch",
+      "src_services_corporatebillingservice_corporatebillingservice_listbatches",
+      "src_services_mealvalidationservice",
+      "src_services_mealvalidationservice_mealvalidationservice",
+      "src_services_mealvalidationservice_mealvalidationservice_constructor",
+      "src_services_mealvalidationservice_mealvalidationservice_generatetxid",
+      "src_services_mealvalidationservice_mealvalidationservice_gettransaction",
+      "src_services_mealvalidationservice_mealvalidationservice_listtransactions",
+      "src_services_mealvalidationservice_mealvalidationservice_validateanddispensemeal",
+      "src_services_mealvalidationservice_mealvalidationservice_verifytransactionintegrity",
+      "src_utils_cryptoseal",
+      "src_utils_cryptoseal_rightrotate",
+      "src_utils_cryptoseal_sha256",
+      "src_utils_formatters",
+      "src_utils_formatters_evaluatehaccptemp",
+      "src_utils_formatters_formatars",
+      "src_utils_formatters_formatdate",
+      "src_utils_formatters_formatdatetime",
+      "src_utils_formatters_getdietarybadge"
+    ],
+    "3": [
+      "package",
+      "package_author",
+      "package_description",
+      "package_keywords",
+      "package_license",
+      "package_name",
+      "package_scripts",
+      "package_scripts_security_full",
+      "package_scripts_test",
+      "package_scripts_test_security",
+      "package_scripts_version_bump",
+      "package_type",
+      "package_version",
+      "ref_catering_industrial",
+      "ref_cero_desperdicio",
+      "ref_comedores_planta",
+      "ref_haccp",
+      "ref_sin_tacc",
+      "ref_viandas_corporativas"
+    ],
+    "4": [
+      "src_core_employeeregistry",
+      "src_core_employeeregistry_employeeregistry",
+      "src_core_employeeregistry_employeeregistry_constructor",
+      "src_core_employeeregistry_employeeregistry_findbydni",
+      "src_core_employeeregistry_employeeregistry_generateid",
+      "src_core_employeeregistry_employeeregistry_getcompany",
+      "src_core_employeeregistry_employeeregistry_getdietaryrequirements",
+      "src_core_employeeregistry_employeeregistry_getemployee",
+      "src_core_employeeregistry_employeeregistry_listcompanies",
+      "src_core_employeeregistry_employeeregistry_listemployees",
+      "src_core_employeeregistry_employeeregistry_registercompany",
+      "src_core_employeeregistry_employeeregistry_registeremployee",
+      "src_core_employeeregistry_employeeregistry_updateemployee"
+    ],
+    "5": [
+      "src_services_foodtrackcache_service",
+      "src_services_foodtrackcache_service_foodtrackcache",
+      "src_services_foodtrackcache_service_foodtrackcache_addtooutbox",
+      "src_services_foodtrackcache_service_foodtrackcache_clear",
+      "src_services_foodtrackcache_service_foodtrackcache_clearoutbox",
+      "src_services_foodtrackcache_service_foodtrackcache_constructor",
+      "src_services_foodtrackcache_service_foodtrackcache_getoutbox",
+      "src_services_foodtrackcache_service_foodtrackcache_ispurged",
+      "src_services_foodtrackcache_service_foodtrackcache_loadstate",
+      "src_services_foodtrackcache_service_foodtrackcache_saveoutbox",
+      "src_services_foodtrackcache_service_foodtrackcache_savestate",
+      "src_services_foodtrackcache_service_foodtrackcache_setpurgeflag"
+    ],
+    "6": [
+      "src_core_menuproductionengine",
+      "src_core_menuproductionengine_menuproductionengine",
+      "src_core_menuproductionengine_menuproductionengine_calculatekitchenproductionbatch",
+      "src_core_menuproductionengine_menuproductionengine_constructor",
+      "src_core_menuproductionengine_menuproductionengine_generatemenuid",
+      "src_core_menuproductionengine_menuproductionengine_getmenufordate",
+      "src_core_menuproductionengine_menuproductionengine_getselection",
+      "src_core_menuproductionengine_menuproductionengine_iscutoffclosed",
+      "src_core_menuproductionengine_menuproductionengine_recordemployeeselection",
+      "src_core_menuproductionengine_menuproductionengine_registerdailymenu"
+    ],
+    "7": [
+      "src_core_haccpthermalsentinel_haccpthermalsentinel",
+      "src_core_haccpthermalsentinel_haccpthermalsentinel_constructor",
+      "src_core_haccpthermalsentinel_haccpthermalsentinel_generatelogid",
+      "src_core_haccpthermalsentinel_haccpthermalsentinel_getlog",
+      "src_core_haccpthermalsentinel_haccpthermalsentinel_getthermalauditsummary",
+      "src_core_haccpthermalsentinel_haccpthermalsentinel_listlogs",
+      "src_core_haccpthermalsentinel_haccpthermalsentinel_recordthermalcheck"
+    ],
+    "8": [
+      "src_services_whatsappmenunotifier_service",
+      "src_services_whatsappmenunotifier_service_whatsappmenunotifier",
+      "src_services_whatsappmenunotifier_service_whatsappmenunotifier_cleanphonenumber",
+      "src_services_whatsappmenunotifier_service_whatsappmenunotifier_generatecutoffreminderurl",
+      "src_services_whatsappmenunotifier_service_whatsappmenunotifier_generatehaccpalerturl",
+      "src_services_whatsappmenunotifier_service_whatsappmenunotifier_generatemenuselectionurl"
+    ]
+  },
+  "cohesion": {
+    "0": 0.03508771929824561,
+    "1": 0.16666666666666666,
+    "2": 0.14245014245014245,
+    "3": 0.10526315789473684,
+    "4": 0.1794871794871795,
+    "5": 0.21212121212121213,
+    "6": 0.28888888888888886,
+    "7": 0.38095238095238093,
+    "8": 0.5333333333333333
+  },
+  "gods": [
+    {
+      "id": "src_main_foodtrackapp",
+      "label": "FoodTrackApp",
+      "degree": 27
+    },
+    {
+      "id": "src_core_employeeregistry_employeeregistry",
+      "label": "EmployeeRegistry",
+      "degree": 14
+    },
+    {
+      "id": "src_services_foodtrackcache_service_foodtrackcache",
+      "label": "FoodTrackCache",
+      "degree": 13
+    },
+    {
+      "id": "src_core_menuproductionengine_menuproductionengine",
+      "label": "MenuProductionEngine",
+      "degree": 11
+    },
+    {
+      "id": "src_core_haccpthermalsentinel_haccpthermalsentinel",
+      "label": "HaccpThermalSentinel",
+      "degree": 9
+    },
+    {
+      "id": "src_services_corporatebillingservice_corporatebillingservice",
+      "label": "CorporateBillingService",
+      "degree": 9
+    },
+    {
+      "id": "src_services_mealvalidationservice_mealvalidationservice",
+      "label": "MealValidationService",
+      "degree": 9
+    },
+    {
+      "id": "src_utils_cryptoseal_sha256",
+      "label": "sha256()",
+      "degree": 8
+    },
+    {
+      "id": "package_keywords",
+      "label": "keywords",
+      "degree": 7
+    },
+    {
+      "id": "src_services_whatsappmenunotifier_service_whatsappmenunotifier",
+      "label": "WhatsAppMenuNotifier",
+      "degree": 7
+    }
+  ],
+  "surprises": [],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `FoodTrackApp` connect `Community 1` to `Community 2`?",
+      "why": "High betweenness centrality (0.173) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `EmployeeRegistry` connect `Community 4` to `Community 0`, `Community 2`?",
+      "why": "High betweenness centrality (0.107) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `FoodTrackCache` connect `Community 5` to `Community 0`, `Community 2`?",
+      "why": "High betweenness centrality (0.098) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `name`, `version`, `description` to the rest of the system?",
+      "why": "70 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.03508771929824561 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14245014245014245 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 3` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

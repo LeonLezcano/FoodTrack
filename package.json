@@ -1,6 +1,6 @@
 {
   "name": "foodtrack",
-  "version": "1.0.00",
+  "version": "1.0.01",
   "description": "Plataforma de Gestión de Comedores de Planta, Viandas Corporativas & Cero Desperdicio",
   "type": "module",
   "scripts": {

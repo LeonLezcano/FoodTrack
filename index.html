@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" class="h-full bg-[#141210] text-[#f4eee8]">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>FoodTrack v1.0.01 — Catering Industrial, Comedores de Planta & Cero Desperdicio</title>
+  <title>FoodTrack v1.0.01 â€” Catering Industrial, Comedores de Planta & Cero Desperdicio</title>
   <!-- Inline SVG Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ea580c'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,7 +30,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg bg-[#2c1f18] border border-[#4a3224] flex items-center justify-center text-xl text-[#fb923c]">
-          🍲
+          ðŸ²
         </div>
         <div>
           <div class="flex items-center gap-2">
@@ -44,12 +44,12 @@
       <div class="flex items-center gap-2.5">
         <!-- Wake Lock Button (Directiva 9) -->
         <button id="wakeLockBtn" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-[#241c17] hover:bg-[#2e231d] text-[#e3d7cf] flex items-center gap-2 border border-[#3b2e25]" title="Screen Wake Lock API">
-          <span>🌙</span> <span class="hidden sm:inline">Modo Tótem:</span> <span>OFF</span>
+          <span>ðŸŒ™</span> <span class="hidden sm:inline">Modo TÃ³tem:</span> <span>OFF</span>
         </button>
 
         <!-- Fast HACCP Entry -->
         <button data-action="open-haccp-modal" class="px-4 py-2 rounded-lg text-xs font-black bg-[#ea580c] hover:bg-[#c2410c] text-white shadow flex items-center gap-1.5 transition">
-          <span>🌡️</span> <span>Control HACCP</span>
+          <span>ðŸŒ¡ï¸</span> <span>Control HACCP</span>
         </button>
       </div>
     </div>
@@ -58,22 +58,22 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-[#261e19] overflow-x-auto py-2 bg-[#161310]">
       <nav class="flex space-x-1.5">
         <button data-tab="dashboard" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-[#2f1e14] text-[#fed7aa] border border-[#ea580c]/40 flex items-center gap-2">
-          <span>📊</span> <span>Panel General</span>
+          <span>ðŸ“Š</span> <span>Panel General</span>
         </button>
         <button data-tab="totem" class="px-3.5 py-2 rounded-lg text-xs font-medium bg-[#191512] hover:bg-[#241e1a] text-[#a89587] hover:text-[#fff] border border-[#2b221b] flex items-center gap-2">
-          <span>🥗</span> <span>Tótem en Línea</span>
+          <span>ðŸ¥—</span> <span>TÃ³tem en LÃ­nea</span>
         </button>
         <button data-tab="production" class="px-3.5 py-2 rounded-lg text-xs font-medium bg-[#191512] hover:bg-[#241e1a] text-[#a89587] hover:text-[#fff] border border-[#2b221b] flex items-center gap-2">
-          <span>🍳</span> <span>Batch de Cocina</span>
+          <span>ðŸ³</span> <span>Batch de Cocina</span>
         </button>
         <button data-tab="employees" class="px-3.5 py-2 rounded-lg text-xs font-medium bg-[#191512] hover:bg-[#241e1a] text-[#a89587] hover:text-[#fff] border border-[#2b221b] flex items-center gap-2">
-          <span>👥</span> <span>Operarios & Dietas</span>
+          <span>ðŸ‘¥</span> <span>Operarios & Dietas</span>
         </button>
         <button data-tab="haccp" class="px-3.5 py-2 rounded-lg text-xs font-medium bg-[#191512] hover:bg-[#241e1a] text-[#a89587] hover:text-[#fff] border border-[#2b221b] flex items-center gap-2">
-          <span>🌡️</span> <span>Auditoría HACCP</span>
+          <span>ðŸŒ¡ï¸</span> <span>AuditorÃ­a HACCP</span>
         </button>
         <button data-tab="billing" class="px-3.5 py-2 rounded-lg text-xs font-medium bg-[#191512] hover:bg-[#241e1a] text-[#a89587] hover:text-[#fff] border border-[#2b221b] flex items-center gap-2">
-          <span>💰</span> <span>Liquidación B2B</span>
+          <span>ðŸ’°</span> <span>LiquidaciÃ³n B2B</span>
         </button>
       </nav>
     </div>
@@ -99,9 +99,17 @@
 
   <!-- Footer -->
   <footer class="bg-[#0e0c0a] border-t border-[#1e1713] py-4 text-center text-xs text-[#8a7566] no-print">
-    FoodTrack v1.0.01 · Inocuidad HACCP · Sello Criptográfico SHA-256 · Cero Desperdicio · AiAppFactory
+    FoodTrack v1.0.01 Â· Inocuidad HACCP Â· Sello CriptogrÃ¡fico SHA-256 Â· Cero Desperdicio Â· AiAppFactory
   </footer>
 
   <script type="module" src="./src/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>
+

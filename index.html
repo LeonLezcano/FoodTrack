@@ -1,79 +1,95 @@
 ﻿<!DOCTYPE html>
-<html lang="es" class="h-full bg-[#141210] text-[#f4eee8]">
+<html lang="es" class="h-full bg-stone-950 bg-[#141210] text-stone-100">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>FoodTrack v1.0.01 â€” Catering Industrial, Comedores de Planta & Cero Desperdicio</title>
-  <!-- Inline SVG Favicon -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodTrack v1.0.01 - Catering Industrial, Comedores de Planta y Cero Desperdicio</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ea580c'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/></svg>">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @media print {
-      .no-print { display: none !important; }
-    }
-    /* Touch optimization for canteen totems & kitchen tablets */
-    button, select, input, a {
-      min-height: 44px;
-      touch-action: manipulation;
-    }
-    h1 { font-size: 1.75rem; line-height: 2.25rem; font-weight: 800; }
-    h2 { font-size: 1.5rem; line-height: 2rem; font-weight: 800; }
-    h3 { font-size: 1.15rem; line-height: 1.75rem; font-weight: 700; }
-  </style>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./styles.css">
 </head>
-<body class="h-full flex flex-col font-sans text-sm selection:bg-amber-600 selection:text-white antialiased bg-[#141210]">
+<body class="min-h-full flex flex-col font-sans text-sm selection:bg-[#c2410c] selection:text-white antialiased bg-stone-950 bg-[#141210] text-stone-100">
   <!-- Toast Alerts Container -->
-  <div id="toastContainer" class="fixed top-4 right-4 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
+  <div id="toastContainer" role="status" aria-live="polite" class="fixed top-4 right-4 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
 
   <!-- Header: Industrial Kitchen Control Bar -->
-  <header class="bg-[#1b1714] border-b border-[#2e2520] sticky top-0 z-30 no-print shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-lg bg-[#2c1f18] border border-[#4a3224] flex items-center justify-center text-xl text-[#fb923c]">
-          ðŸ²
+  <header class="bg-stone-950 bg-[#1b1714] border-b border-[#2e2520] sticky top-0 z-30 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[64px] py-2.5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-10 h-10 shrink-0 rounded-lg bg-stone-900 bg-[#2c1f18] border border-[#4a3224] flex items-center justify-center text-orange-400">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 11h16v3a8 8 0 0 1-16 0v-3z" />
+            <path d="M7 7h10" />
+            <path d="M6 21h12" />
+          </svg>
         </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="text-lg font-black tracking-tight text-[#fdf8f4]">FoodTrack</span>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#2c1f18] text-[#fb923c] border border-[#4a3224] font-bold">v1.0.01</span>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            <h1 class="text-xl font-extrabold tracking-tight text-stone-50">FoodTrack</h1>
+            <span class="text-xs font-mono text-orange-400 font-semibold">v1.0.01</span>
           </div>
-          <p class="text-xs text-[#a89587]">Catering Industrial, Comedores de Planta & Cero Desperdicio</p>
+          <p class="text-xs text-stone-300 truncate">Catering Industrial, Comedores de Planta y Control HACCP</p>
         </div>
       </div>
 
-      <div class="flex items-center gap-2.5">
+      <div class="flex flex-wrap items-center gap-2.5">
         <!-- Wake Lock Button (Directiva 9) -->
-        <button id="wakeLockBtn" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-[#241c17] hover:bg-[#2e231d] text-[#e3d7cf] flex items-center gap-2 border border-[#3b2e25]" title="Screen Wake Lock API">
-          <span>ðŸŒ™</span> <span class="hidden sm:inline">Modo TÃ³tem:</span> <span>OFF</span>
+        <button id="wakeLockBtn" type="button" class="px-3.5 py-2 min-h-[44px] rounded-lg text-xs font-semibold bg-[#241e1a] hover:bg-[#2e2520] text-stone-200 flex items-center gap-2 border border-[#3d322b] transition-colors" title="Screen Wake Lock API">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" />
+          </svg>
+          <span class="hidden sm:inline">Modo Tótem:</span>
+          <span>OFF</span>
         </button>
 
         <!-- Fast HACCP Entry -->
-        <button data-action="open-haccp-modal" class="px-4 py-2 rounded-lg text-xs font-black bg-[#ea580c] hover:bg-[#c2410c] text-white shadow flex items-center gap-1.5 transition">
-          <span>ðŸŒ¡ï¸</span> <span>Control HACCP</span>
+        <button type="button" data-action="open-haccp-modal" class="px-4 py-2 min-h-[44px] rounded-lg text-xs font-bold bg-[#c2410c] hover:bg-[#9a3412] text-white flex items-center gap-2 transition-colors">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0z" />
+          </svg>
+          <span>Control HACCP</span>
         </button>
       </div>
     </div>
 
     <!-- Navigation Tabs -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-[#261e19] overflow-x-auto py-2 bg-[#161310]">
-      <nav class="flex space-x-1.5">
-        <button data-tab="dashboard" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-[#2f1e14] text-[#fed7aa] border border-[#ea580c]/40 flex items-center gap-2">
-          <span>ðŸ“Š</span> <span>Panel General</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-[#261e19] py-2 bg-[#161310]">
+      <nav role="tablist" aria-label="Secciones principales de FoodTrack" class="flex flex-wrap gap-1.5">
+        <button type="button" role="tab" aria-selected="true" data-tab="dashboard" class="px-3.5 py-2 min-h-[44px] rounded-lg text-xs font-bold bg-[#c2410c] text-white flex items-center gap-2 transition-colors">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="9" rx="1" /><rect x="14" y="3" width="7" height="5" rx="1" /><rect x="14" y="12" width="7" height="9" rx="1" /><rect x="3" y="16" width="7" height="5" rx="1" />
+          </svg>
+          <span>Panel General</span>
         </button>
-        <button data-tab="totem" class="px-3.5 py-2 rounded-lg text-xs font-medium bg-[#191512] hover:bg-[#241e1a] text-[#a89587] hover:text-[#fff] border border-[#2b221b] flex items-center gap-2">
-          <span>ðŸ¥—</span> <span>TÃ³tem en LÃ­nea</span>
+        <button type="button" role="tab" aria-selected="false" data-tab="totem" class="px-3.5 py-2 min-h-[44px] rounded-lg text-xs font-semibold bg-[#1b1714] hover:bg-[#241e1a] text-stone-300 hover:text-stone-50 border border-[#2e2520] flex items-center gap-2 transition-colors">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="5" y="2" width="14" height="20" rx="2" /><line x1="9" y1="6" x2="15" y2="6" /><line x1="9" y1="10" x2="15" y2="10" /><line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span>Tótem en Línea</span>
         </button>
-        <button data-tab="production" class="px-3.5 py-2 rounded-lg text-xs font-medium bg-[#191512] hover:bg-[#241e1a] text-[#a89587] hover:text-[#fff] border border-[#2b221b] flex items-center gap-2">
-          <span>ðŸ³</span> <span>Batch de Cocina</span>
+        <button type="button" role="tab" aria-selected="false" data-tab="production" class="px-3.5 py-2 min-h-[44px] rounded-lg text-xs font-semibold bg-[#1b1714] hover:bg-[#241e1a] text-stone-300 hover:text-stone-50 border border-[#2e2520] flex items-center gap-2 transition-colors">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 13h18" /><path d="M5 13v3a7 7 0 0 0 14 0v-3" /><path d="M9 5v3" /><path d="M12 4v4" /><path d="M15 5v3" />
+          </svg>
+          <span>Batch de Cocina</span>
         </button>
-        <button data-tab="employees" class="px-3.5 py-2 rounded-lg text-xs font-medium bg-[#191512] hover:bg-[#241e1a] text-[#a89587] hover:text-[#fff] border border-[#2b221b] flex items-center gap-2">
-          <span>ðŸ‘¥</span> <span>Operarios & Dietas</span>
+        <button type="button" role="tab" aria-selected="false" data-tab="employees" class="px-3.5 py-2 min-h-[44px] rounded-lg text-xs font-semibold bg-[#1b1714] hover:bg-[#241e1a] text-stone-300 hover:text-stone-50 border border-[#2e2520] flex items-center gap-2 transition-colors">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          <span>Operarios y Dietas</span>
         </button>
-        <button data-tab="haccp" class="px-3.5 py-2 rounded-lg text-xs font-medium bg-[#191512] hover:bg-[#241e1a] text-[#a89587] hover:text-[#fff] border border-[#2b221b] flex items-center gap-2">
-          <span>ðŸŒ¡ï¸</span> <span>AuditorÃ­a HACCP</span>
+        <button type="button" role="tab" aria-selected="false" data-tab="haccp" class="px-3.5 py-2 min-h-[44px] rounded-lg text-xs font-semibold bg-[#1b1714] hover:bg-[#241e1a] text-stone-300 hover:text-stone-50 border border-[#2e2520] flex items-center gap-2 transition-colors">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0z" />
+          </svg>
+          <span>Auditoría HACCP</span>
         </button>
-        <button data-tab="billing" class="px-3.5 py-2 rounded-lg text-xs font-medium bg-[#191512] hover:bg-[#241e1a] text-[#a89587] hover:text-[#fff] border border-[#2b221b] flex items-center gap-2">
-          <span>ðŸ’°</span> <span>LiquidaciÃ³n B2B</span>
+        <button type="button" role="tab" aria-selected="false" data-tab="billing" class="px-3.5 py-2 min-h-[44px] rounded-lg text-xs font-semibold bg-[#1b1714] hover:bg-[#241e1a] text-stone-300 hover:text-stone-50 border border-[#2e2520] flex items-center gap-2 transition-colors">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="5" width="20" height="14" rx="2" /><line x1="2" y1="10" x2="22" y2="10" />
+          </svg>
+          <span>Liquidación B2B</span>
         </button>
       </nav>
     </div>
@@ -81,35 +97,32 @@
 
   <!-- Main View Container -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-    <div id="mainView">
+    <div id="mainView" role="tabpanel">
       <!-- Dynamic View Rendered by JS -->
     </div>
   </main>
 
   <!-- Main Modal -->
-  <div id="mainModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-[#1b1714] border border-[#2e2520] rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 relative">
-      <div class="flex justify-between items-center mb-4 border-b border-[#2e2520] pb-3">
-        <h3 id="modalTitle" class="text-base font-bold text-[#fdf8f4]">Modal</h3>
-        <button data-action="close-modal" class="text-[#a89587] hover:text-white p-1 rounded-lg hover:bg-[#261f1a] text-xl font-bold">&times;</button>
+  <div id="mainModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" class="fixed inset-0 z-50 bg-black/80 hidden flex items-center justify-center p-4">
+    <div class="bg-stone-950 bg-[#1b1714] border border-[#2e2520] rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 relative">
+      <div class="flex justify-between items-center gap-3 mb-4 border-b border-[#2e2520] pb-3">
+        <h2 id="modalTitle" class="text-base font-bold text-stone-50">Modal</h2>
+        <button type="button" data-action="close-modal" aria-label="Cerrar ventana" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-stone-300 hover:text-stone-50 rounded-lg hover:bg-[#241e1a] transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
       </div>
       <div id="modalBody"></div>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="bg-[#0e0c0a] border-t border-[#1e1713] py-4 text-center text-xs text-[#8a7566] no-print">
-    FoodTrack v1.0.01 Â· Inocuidad HACCP Â· Sello CriptogrÃ¡fico SHA-256 Â· Cero Desperdicio Â· AiAppFactory
+  <footer class="bg-stone-950 bg-[#0e0c0a] border-t border-[#1e1713] py-4 px-4 text-center text-xs text-stone-300 no-print">
+    FoodTrack v1.0.01 | Inocuidad HACCP | Sello Criptográfico SHA-256 | AiAppFactory
   </footer>
 
   <script type="module" src="./src/main.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(() => {});
-      });
-    }
-  </script>
+  <script type="module" src="./src/sw-register.js"></script>
 </body>
 </html>
-

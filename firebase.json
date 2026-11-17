@@ -6,9 +6,12 @@
       "**/.*",
       "**/node_modules/**",
       "tests/**",
+      "scripts/**",
       "package.json",
       "pnpm-lock.yaml",
-      "vite.config.js"
+      "vite.config.js",
+      "tailwind.config.cjs",
+      "src/input.css"
     ],
     "headers": [
       {
@@ -16,7 +19,7 @@
         "headers": [
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self';"
+            "value": "default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: blob: https:; connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self';"
           },
           {
             "key": "X-Frame-Options",

@@ -71,7 +71,7 @@ export class MealValidationService {
         dni: employee.dni,
         company: employee.companyName,
         shift,
-        error: `⛔ ACCESO DENEGADO: Ración ya consumida en el Turno ${shift} a las ${priorTx ? new Date(priorTx.timestamp).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }) : 'anteriormente'}.`
+        error: `ACCESO DENEGADO: Ración ya consumida en el Turno ${shift} a las ${priorTx ? new Date(priorTx.timestamp).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }) : 'anteriormente'}.`
       };
     }
 
@@ -138,7 +138,7 @@ export class MealValidationService {
       dishServed,
       dietaryBadge,
       hasMedicalAlert: dietaryBadge.isMedicalAlert,
-      message: `✅ Ración habilitada para ${employee.fullName}`
+      message: `Ración habilitada para ${employee.fullName}`
     };
   }
 

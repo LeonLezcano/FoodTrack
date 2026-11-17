@@ -104,35 +104,35 @@ export function getDietaryBadge(dietaryProfile) {
   const clean = String(dietaryProfile || 'Estándar').trim().toLowerCase();
   if (clean.includes('celíaco') || clean.includes('tacc')) {
     return {
-      label: '🌾❌ SIN TACC (CELÍACO)',
+      label: 'SIN TACC (CELÍACO)',
       isMedicalAlert: true,
-      className: 'bg-amber-950 text-amber-300 border border-amber-700 animate-pulse font-bold'
+      className: 'bg-[#3d280a] text-amber-200 border border-amber-700 font-bold'
     };
   }
   if (clean.includes('hiposódico') || clean.includes('sal')) {
     return {
-      label: '🧂❌ HIPOSÓDICO',
+      label: 'HIPOSÓDICO',
       isMedicalAlert: true,
-      className: 'bg-blue-950 text-blue-300 border border-blue-700 font-bold'
+      className: 'bg-[#172554] text-blue-200 border border-blue-700 font-bold'
     };
   }
   if (clean.includes('diabético') || clean.includes('azúcar')) {
     return {
-      label: '🩺 DIABÉTICO',
+      label: 'DIABÉTICO',
       isMedicalAlert: true,
-      className: 'bg-purple-950 text-purple-300 border border-purple-700 font-bold'
+      className: 'bg-[#3b0764] text-purple-200 border border-purple-700 font-bold'
     };
   }
   if (clean.includes('vegetariano') || clean.includes('vegano')) {
     return {
-      label: '🌱 VEGETARIANO',
+      label: 'VEGETARIANO',
       isMedicalAlert: false,
-      className: 'bg-emerald-950 text-emerald-300 border border-emerald-800'
+      className: 'bg-[#1b3524] text-emerald-200 border border-emerald-800 font-semibold'
     };
   }
   return {
-    label: '🍽️ MENÚ ESTÁNDAR',
+    label: 'MENÚ ESTÁNDAR',
     isMedicalAlert: false,
-    className: 'bg-slate-800 text-slate-300 border border-slate-700'
+    className: 'bg-[#241e1a] text-[#e3d7cf] border border-[#3d322b]'
   };
 }

@@ -7,7 +7,7 @@
     "test": "node tests/run_tests.js",
     "test:security": "node ../AiAppFactory/tools/security-guardian/index.mjs .",
     "security:full": "node ../AiAppFactory/tools/security-guardian/index.mjs .",
-    "version:bump": "node -e \"const v = JSON.parse(fs.readFileSync('version.json')); const parts = v.version.slice(1).split('.'); parts[2] = String(Number(parts[2]) + 1).padStart(2, '0'); v.version = 'v' + parts.join('.'); fs.writeFileSync('version.json', JSON.stringify(v, null, 2)); console.log(v.version);\""
+    "version:bump": "node scripts/bump-version.mjs"
   },
   "keywords": [
     "catering-industrial",

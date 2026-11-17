@@ -358,6 +358,48 @@ assert(!rulesStr.includes('allow read, write: if true;'), 'Capa 4.9: firestore.r
 // 44. firestore.rules Inmutability
 assert(rulesStr.includes('allow update, delete: if false;'), 'Capa 4.10: Inmutabilidad estricta de transacciones y registros HACCP en rules');
 
+// 44b. Strict CSP without unsafe-inline or external Tailwind CDN & /sw.js anti-stale header
+const swHeaderEntry = fbConfig.hosting.headers.find(h => h.source === '/sw.js' || h.source === 'sw.js');
+const swCacheCtrl = swHeaderEntry?.headers?.find(h => h.key === 'Cache-Control')?.value || '';
+assert(
+  !csp.includes("'unsafe-inline'") && !csp.includes('cdn.tailwindcss.com') && swCacheCtrl.includes('no-cache'),
+  'Capa 4.11: CSP sin unsafe-inline ni CDN externo y cabecera anti-stale para /sw.js'
+);
+
+// 44c. Offline-first PWA files & Service Worker asset integrity
+const indexHtml = fs.readFileSync(path.resolve('index.html'), 'utf8');
+const swJs = fs.readFileSync(path.resolve('sw.js'), 'utf8');
+const sanitizerSrc = fs.readFileSync(path.resolve('src/utils/sanitizer.js'), 'utf8');
+assert(
+  !indexHtml.includes('cdn.tailwindcss.com') &&
+  !indexHtml.includes('user-scalable=no') &&
+  !indexHtml.includes('—') &&
+  indexHtml.includes('./styles.css') &&
+  indexHtml.includes('./manifest.json'),
+  'Capa 4.12: index.html offline-first sin CDN, sin bloqueo de zoom y sin rayas em-dash'
+);
+assert(
+  swJs.includes('./styles.css') &&
+  swJs.includes('./manifest.json') &&
+  swJs.includes('./src/main.js') &&
+  swJs.includes('./src/sw-register.js') &&
+  swJs.includes('./src/utils/icons.js'),
+  'Capa 4.13: sw.js precachea CSS local, manifest.json y módulos reales'
+);
+assert(
+  sanitizerSrc.includes("'readonly'") &&
+  sanitizerSrc.includes("'required'") &&
+  sanitizerSrc.includes("'for'") &&
+  sanitizerSrc.includes("'colspan'") &&
+  sanitizerSrc.includes("'aria-modal'") &&
+  sanitizerSrc.includes("'aria-labelledby'"),
+  'Capa 4.14: Sanitizer preserva atributos funcionales y ARIA de formularios y tablas'
+);
+assert(
+  !bCeliac.className.includes('animate-pulse') && !/[🌾❌🧂🩺🌱🍽️]/.test(bCeliac.label),
+  'Capa 4.15: Badges dietéticos sin animaciones infinitas ni emojis decorativos'
+);
+
 
 // -------------------------------------------------------------
 // CAPA 5: E2E Lifecycle & Outbox Cache

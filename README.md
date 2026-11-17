@@ -102,6 +102,14 @@ node ../AiAppFactory/tools/security-guardian/index.mjs .
 
 ---
 
+## 🎨 Remediación UX/UI, Accesibilidad y PWA Offline-First
+
+- **Design System (`DESIGN.md`):** Paleta unificada en piedra industrial oscura (`#141210`, `#1b1714`) y naranja brasa (`#c2410c` / `#fb923c`), tipografía de sistema sin dependencias externas, jerarquía semántica única (`h1 > h2 > h3`) y modo de impresión claro (`@media print`).
+- **Tailwind CSS Compilado Localmente (`styles.css`):** Eliminada la dependencia de `cdn.tailwindcss.com` y `'unsafe-inline'` en `firebase.json` CSP; `sw.js` precachea todos los módulos locales y assets reales junto con `manifest.json`.
+- **Accesibilidad y Formularios (WCAG AA):** Contraste verificado (`>= 4.5:1`), anillos `:focus-visible`, soporte de teclado (`Escape` en modales, flechas en `role="tablist"`), `<label for="...">` en todos los campos, envío por `submit` con validación nativa, estados vacíos con acciones de recuperación, etiquetas explícitas `[DEMO]` con purga desde la UI (`FoodTrackCache.clear()`) y persistencia local (`saveState()` / `loadState()`).
+
+---
+
 ## 🚀 Despliegue y Ejecución Local
 
 ```bash
